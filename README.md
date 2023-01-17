@@ -9,6 +9,13 @@ This is a minimalistic Starter with only HTML/CSS/TS
 
 ## When to use
 
-1. When you need to develop a pure HTML/CSS/TS prototype.
+When you need to develop a pure HTML/CSS/TS prototype.
+
+## How to use
+
+```bash
+npm i
+npm run dev
+```
 
 **Happy coding!**
