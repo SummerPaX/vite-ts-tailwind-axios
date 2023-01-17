@@ -11,22 +11,18 @@
 </head>
 
 <body
-  class="min-w-[320px] text-base font-normal bg-[#ffffff] text-[#213547] dark:bg-[#242424] dark:text-white m-0 flex place-items-center min-h-screen">
-  <div class="flex flex-col justify-center items-center p-8 max-w-[1280px] mx-auto">
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="p-5 h-24 hover:drop-shadow-logo" alt="Vite logo" />
-    </a>
-    <a href="https://tailwindcss.com/" target="_blank">
-      <img src="/tailwindcss.svg" class="p-5 h-16 "
-        alt="TailwindCSS logo" />
-    </a>
-    <h1 id="title" class="text-6xl my-12 bg-gradient-to-r from-green-400 to-blue-500 p-4 bg-clip-text text-transparent"></h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
+  class="min-w-[320px] text-base font-normal bg-[#ffffff] text-[#213547] dark:bg-stone-800 dark:text-white m-0 flex min-h-screen">
+  <div class="flex flex-col items-center p-8 max-w-[1280px] mx-auto">
+    <h1 id="title" class="text-6xl my-12 bg-gradient-to-b from-blue-200 to-blue-500 p-4 bg-clip-text text-transparent">
+    </h1>
+
+    <form id="searchForm">
+      <input id="queryInput" type="text" class="bg-stone-900 ring-1 ring-stone-200 rounded-full text-xl py-2 px-6 ">
+    </form>
+    <div id="beer">
+
     </div>
-    <p class="text-gray-600">
-      Click on the Vite logo to learn more
-    </p>
   </div>
 </body>
+
 </html>
