@@ -1,12 +1,39 @@
-import axios from 'axios'
+import axios, { AxiosResponse } from 'axios'
+import { PunkapiResponse } from "./punkapi.interface";
 
 const title = document.getElementById("title")
-const searchForm = document.getElementById("searchForm")
-const queryInput = document.getElementById("queryInput")
-const beerElement = document.getElementById("beer")
 
-if (title) title.textContent = "Looking for Beer?"
+if (title) {
+  title.textContent = 'Refresh for a random Craft Beer!'
+}
 
-searchForm?.addEventListener('submit', () => {
+const response: AxiosResponse<PunkapiResponse[]> = await axios.get<PunkapiResponse[]>(
+  '/beers/22',
+  {
+    baseURL: import.meta.env.VITE_API_BASE
+  }
+)
 
-})
+const beers = response.data
+
+console.log(beers);
+const beer = beers[0]
+
+const beerTitle = document.getElementById("beerTitle")
+const tagline = document.getElementById("tagline")
+const description = document.getElementById("description")
+const abv = document.getElementById("abv")
+const volume = document.getElementById("volume")
+const brewers_tips = document.getElementById("brewers_tips")
+const beerImg = <HTMLImageElement>document.getElementById("beerImg")
+
+if (beerTitle) { beerTitle.textContent = beer.name }
+if (tagline) { tagline.textContent = beer.tagline }
+if (description) { description.textContent = beer.description }
+if (abv) { abv.textContent = beer.abv + "%" }
+if (volume) { volume.textContent = beer.volume.value + ' ' + beer.volume.unit }
+if (brewers_tips) { brewers_tips.textContent = beer.brewers_tips }
+if (beerImg) {
+  if (beer.image_url) beerImg.src = beer.image_url
+  else beerImg.style.display = "none"
+}
