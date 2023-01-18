@@ -1,4 +1,4 @@
-export interface PunkapiResponse {
+export interface CraftBeer {
   id: number
   name: string
   tagline: string

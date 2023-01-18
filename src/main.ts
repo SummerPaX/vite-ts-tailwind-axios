@@ -1,5 +1,6 @@
 import axios, { AxiosResponse } from 'axios'
-import { PunkapiResponse } from "./punkapi.interface";
+import { CraftBeer } from './punkapi.interface'
+
 
 const title = document.getElementById("title")
 
@@ -7,8 +8,8 @@ if (title) {
   title.textContent = 'Refresh for a random Craft Beer!'
 }
 
-const response: AxiosResponse<PunkapiResponse[]> = await axios.get<PunkapiResponse[]>(
-  '/beers/22',
+const response: AxiosResponse<CraftBeer[]> = await axios.get<CraftBeer[]>(
+  '/beers',
   {
     baseURL: import.meta.env.VITE_API_BASE
   }
@@ -33,6 +34,7 @@ if (description) { description.textContent = beer.description }
 if (abv) { abv.textContent = beer.abv + "%" }
 if (volume) { volume.textContent = beer.volume.value + ' ' + beer.volume.unit }
 if (brewers_tips) { brewers_tips.textContent = beer.brewers_tips }
+
 if (beerImg) {
   if (beer.image_url) beerImg.src = beer.image_url
   else beerImg.style.display = "none"
