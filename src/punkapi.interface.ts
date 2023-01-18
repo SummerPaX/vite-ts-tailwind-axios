@@ -1,4 +1,4 @@
-export interface PunkapiResponse {
+export interface PunkIPA {
   id: number
   name: string
   tagline: string

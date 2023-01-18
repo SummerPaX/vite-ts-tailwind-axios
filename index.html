@@ -10,32 +10,11 @@
     <script type="module" src="./src/main.ts" defer></script>
 </head>
 
-<body
-    class="min-w-[320px] text-base font-normal bg-[#ffffff] text-[#213547] dark:bg-stone-800 dark:text-white m-0 flex min-h-screen">
-    <div class="flex flex-col items-center p-8 max-w-[1280px] mx-auto">
-        <h1 id="title"
-            class="text-6xl my-12 bg-gradient-to-b from-blue-200 to-blue-500 p-4 bg-clip-text text-transparent"> </h1>
+<body class="text-base font-normal bg-[#ffffff] text-[#213547] dark:bg-stone-800 dark:text-white m-0 min-h-screen">
+    <h1 id="title" class="text-6xl w-full text-center my-12 p-4 bg-clip-text ">
+    </h1>
 
-        <div id="beer" class="flex items-end bg-stone-300 dark:bg-stone-900 p-10 gap-10 rounded-xl">
-            <div>
-                <img class="max-w-[6rem]" id="beerImg" alt="Beer Bottle" src="">
-            </div>
-            <div class="flex flex-col">
-                <h2 id="beerTitle" class="text-3xl"></h2>
-                <span id="tagline" class="text-sm mb-4"></span>
-                <p id="description" class="pb-4"> </p>
-                <div class="">
-                    <span>ABV:</span>
-                    <span id="abv"></span>
-                </div>
-                <div class="mb-4">
-                    <span>Volume:</span>
-                    <span id="volume"></span>
-                </div>
-                <p id="brewers_tips" class="text-sm"></p>
-            </div>
-        </div>
-    </div>
+    <div id="container" class="flex flex-col w-full items-center gap-8"></div>
 </body>
 
 </html>

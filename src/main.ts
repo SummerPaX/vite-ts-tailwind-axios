@@ -1,39 +1,28 @@
 import axios, { AxiosResponse } from 'axios'
-import { PunkapiResponse } from "./punkapi.interface";
+import { createBeerCard } from './BeerComponent';
+import { PunkIPA } from "./punkapi.interface";
 
 const title = document.getElementById("title")
 
 if (title) {
-  title.textContent = 'Refresh for a random Craft Beer!'
+  title.textContent = 'Craft Beer 🍻'
 }
 
-const response: AxiosResponse<PunkapiResponse[]> = await axios.get<PunkapiResponse[]>(
-  '/beers/22',
+const response: AxiosResponse<PunkIPA[]> = await axios.get<PunkIPA[]>(
+  '/beers',
   {
     baseURL: import.meta.env.VITE_API_BASE
   }
 )
 
-const beers = response.data
+const beerList = response.data
 
-console.log(beers);
-const beer = beers[0]
+console.log(beerList);
 
-const beerTitle = document.getElementById("beerTitle")
-const tagline = document.getElementById("tagline")
-const description = document.getElementById("description")
-const abv = document.getElementById("abv")
-const volume = document.getElementById("volume")
-const brewers_tips = document.getElementById("brewers_tips")
-const beerImg = <HTMLImageElement>document.getElementById("beerImg")
+const container = document.getElementById("container")
 
-if (beerTitle) { beerTitle.textContent = beer.name }
-if (tagline) { tagline.textContent = beer.tagline }
-if (description) { description.textContent = beer.description }
-if (abv) { abv.textContent = beer.abv + "%" }
-if (volume) { volume.textContent = beer.volume.value + ' ' + beer.volume.unit }
-if (brewers_tips) { brewers_tips.textContent = beer.brewers_tips }
-if (beerImg) {
-  if (beer.image_url) beerImg.src = beer.image_url
-  else beerImg.style.display = "none"
+if (container) {
+  beerList.forEach(beer => {
+    container.appendChild(createBeerCard(beer))
+  })
 }
