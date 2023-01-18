@@ -1,6 +1,6 @@
-import { PunkIPA } from "./punkapi.interface"
+import { CraftBeer } from "./punkapi.interface"
 
-export function createBeerCard(beer: PunkIPA): HTMLDivElement {
+export function createBeerCard(beer: CraftBeer): HTMLDivElement {
     const card = document.createElement('div')
     card.classList.add(
         'flex',
